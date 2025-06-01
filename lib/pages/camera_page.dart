@@ -19,7 +19,7 @@ class CameraPage extends StatefulWidget {
 }
 
 class _CameraPageState extends State<CameraPage> {
-  final ContactController _controller = ContactController();
+  final ContactController controller = ContactController();
   bool isScanOver = false;
   List<String> lines = [];
   String name = '', mobile = '', email = '', company = '', designation = '', address = '', website = '', image = '';

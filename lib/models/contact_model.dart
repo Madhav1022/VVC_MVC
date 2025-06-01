@@ -1,15 +1,4 @@
-const String tableContact = 'tbl_contact';
-const String tblContactColId = 'id';
-const String tblContactColName = 'name';
-const String tblContactColMobile = 'mobile';
-const String tblContactColEmail = 'email';
-const String tblContactColAddress = 'address';
-const String tblContactColCompany = 'company';
-const String tblContactColDesignation = 'designation';
-const String tblContactColWebsite = 'website';
-const String tblContactColImage = 'image';
-const String tblContactColFavorite = 'favorite';
-
+import 'package:virtual_visiting_card_mvc/utils/constants.dart';
 
 class ContactModel {
   int id;
@@ -22,6 +11,7 @@ class ContactModel {
   String website;
   String image;
   bool favorite;
+  String userId;
 
   ContactModel({
     this.id = -1,
@@ -34,6 +24,7 @@ class ContactModel {
     this.website = '',
     this.image = '',
     this.favorite = false,
+    this.userId = '',
   });
 
   Map<String, dynamic> toMap() {
@@ -46,9 +37,10 @@ class ContactModel {
       tblContactColDesignation: designation,
       tblContactColWebsite: website,
       tblContactColImage: image,
-      tblContactColFavorite: favorite ? 1: 0,
+      tblContactColFavorite: favorite ? 1 : 0,
+      tblContactColUserId: userId,
     };
-    if(id > 0) {
+    if (id > 0) {
       map[tblContactColId] = id;
     }
     return map;
@@ -65,10 +57,11 @@ class ContactModel {
     website: map[tblContactColWebsite],
     image: map[tblContactColImage],
     favorite: map[tblContactColFavorite] == 1 ? true : false,
+    userId: map[tblContactColUserId] ?? '',
   );
 
   @override
   String toString() {
-    return 'ContactModel{id: $id, name: $name, mobile: $mobile, email: $email, address: $address, company: $company, designation: $designation, website: $website, image: $image, favorite: $favorite}';
+    return 'ContactModel{id: $id, name: $name, mobile: $mobile, email: $email, address: $address, company: $company, designation: $designation, website: $website, image: $image, favorite: $favorite, userId: $userId}';
   }
 }
